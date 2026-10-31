@@ -6,6 +6,7 @@
 #include <string>
 #include <ctime>
 
+// Shop Management Project
 
 using namespace std;
 
