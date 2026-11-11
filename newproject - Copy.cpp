@@ -6,7 +6,7 @@
 #include <string>
 #include <ctime>
 
-// Shop Management Project
+
 
 using namespace std;
 
@@ -98,12 +98,12 @@ struct Visitor{
   void Edit_visitor()
  {
     Visitor v;
-    string search_code;
+    string edit_code;
     bool found = false;
 
     cout << "Enter visitor code to edit: ";
-    cin >> search_code;
 
+    cin >> edit_code;
     ifstream file("visitor.txt");
     ofstream temp("temp.txt");
 
@@ -121,7 +121,7 @@ struct Visitor{
         if (!getline(file, v.phone_number))
             break;
 
-        if (v.visitor_code == search_code)
+        if (v.visitor_code == edit_code)
     {
         found = true;
 
@@ -153,10 +153,6 @@ struct Visitor{
     else
         cout << "Error replacing visitor file";
    }
-
-
-
-
 
        void Serch_visitor()
    {
@@ -202,7 +198,6 @@ struct Visitor{
     }
        file.close();
 
-        
         if(found!=true)
         cout<<"visitor not found";
       }
@@ -241,6 +236,7 @@ struct Visitor{
         if (v.visitor_code == delete_code)
         {
             found = true;
+            
         }
         else
         {
@@ -248,9 +244,10 @@ struct Visitor{
             temp << v.fullname << endl;
             temp << v.phone_number << endl;
         }
+      }
           file.close();
           temp.close();
-      }
+      
            if (found)
     {
       if (rename("visitor.txt", "old.txt") == 0)
@@ -298,13 +295,14 @@ struct Visitor{
          o.date = to_string(1900 + newtime.tm_year) + "/" +
          to_string(1 + newtime.tm_mon) + "/" +
          to_string(newtime.tm_mday);
+         cout<<"date: "<<o.date<<endl;
 
       cout << "Enter order status: ";
       cin >> o.Status;
 
       cout<<"product count: ";
       cin>>o.product_count;
-
+      
       while(o.product_count<1)
       {
         cout<<"Enter product count:";
