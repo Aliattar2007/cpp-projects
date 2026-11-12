@@ -1,4 +1,0 @@
-Ali  17
-Hamid  15.5
-Sara  9.5
-Ahmad,  8.75
